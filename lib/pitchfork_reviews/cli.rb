@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class PitchforkReviews::CLI
 
   def call
@@ -12,7 +10,7 @@ class PitchforkReviews::CLI
     puts "Welcome"
     @albums = PitchforkReviews::Album.latest
     @albums.each.with_index(1) do |album, i|
-      puts "#{i}. #{album.name} - #{album.artist}"
+      puts "#{i}. #{album.name} by #{album.artist}#{album.best_new_album}"
     end
   end
 
@@ -22,7 +20,8 @@ class PitchforkReviews::CLI
       puts "Please enter the number of the album you would like to learn more about, 'list' to see the album list again, or 'exit' to exit the program."
       input = gets.strip.downcase
       if input.to_i > 0
-        puts @albums[input.to_i-1]
+        the_album = @albums[input.to_i-1]
+        puts "#{the_album.name}"
       elsif input == "list"
         list_reviews
       else
@@ -35,10 +34,5 @@ class PitchforkReviews::CLI
     puts "Goodbye! Check back again soon for more new albums."
   end
 
-  #def scrape
-   # doc = Nokogiri::HTML(open("http://pitchfork.com/reviews/albums/"))
-   # doc_html = doc.to_html
-   # puts "#{doc_html}"
- # end
 
 end

@@ -2,24 +2,51 @@ class PitchforkReviews::Album
   attr_accessor :name, :album, :artist, :genre, :score, :summary, :best_new_album, :url
 
   def self.latest
-    album_1 = self.new
-    album_1.name = "The Colour in Anything"
-    album_1.artist = "James Blake"
-    album_1.genre = "Pop/R&B, Electronic"
-    album_1.score = "8.2"
-    album_1.best_new_album = true
-    album_1.summary = "Clocking in at 76 minutes, The Colour in Anything is James Blake’s wonderfully messy dive into maximalism."
-    album_1.url = "http://pitchfork.com/reviews/albums/21906-the-colour-in-anything/"
-
-    album_2 = self.new
-    album_2.name = "Cult Following"
-    album_2.artist = "Little Scream"
-    album_2.genre = "Folk/Country"
-    album_2.score = "7.5"
-    album_2.summary = "Laurel Sprengelmeyer's Cult Following is a flowing record with guests including Sufjan Stevens, Sharon Van Etten, the National’s Dessner brothers, and TV on the Radio’s Kyp Malone."
-    album_2.best_new_album = false
-    album_2.url = "http://pitchfork.com/reviews/albums/21861-cult-following/"
-    
-    [album_1, album_2]
+    self.scrape_pitchfork
   end
+
+  def self.scrape_albums
+    albums = []
+    albums << self.scrape_pitchfork
+    albums
+  end
+
+  def self.scrape_pitchfork
+    albums = []
+    doc = Nokogiri::HTML(open("http://pitchfork.com/reviews/albums/"))
+    doc.css(".review").each do |review|
+      album = self.new
+      album.name = review.css(".title").text
+      album.artist = review.css("div.album-artist ul li").text
+      album.genre = review.css("ul.genre-list.before.inline").text
+      album.url = review.css(".album-link")[0]["href"]
+        if review.text.include?("Best New Album")
+          album.best_new_album = " * Best New Album *"
+        end
+    albums << album
+    end
+    albums
+  
+  end
+
+
+def self.scrape_pitchfork_to_hash
+    albums = []
+    doc = Nokogiri::HTML(open("http://pitchfork.com/reviews/albums/"))
+    doc.css(".review").each do |review|
+      album = {
+        name: review.css(".title").text,
+        artist: review.css("div.album-artist ul li").text,
+        genre: review.css("ul.genre-list.before.inline").text,
+        url: review.css(".album-link")[0]["href"]}
+        if review.text.include?("Best New Album")
+          album[:best_new_album] = true
+        end
+  
+      albums << album
+    end
+    albums
+  end
+
 end
+
