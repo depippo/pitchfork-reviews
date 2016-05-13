@@ -23,10 +23,17 @@ class PitchforkReviews::Album
         if review.text.include?("Best New Album")
           album.best_new_album = " * Best New Album *"
         end
+      page = Nokogiri::HTML(open("http://pitchfork.com#{album.url}"))
+      album.score = page.css(".score-circle").text
+      album.summary = page.css("div.abstract").text.gsub("Â" , "").gsub("â" , "'")
     albums << album
     end
     albums
-  
+  end
+
+  def self.deep_scrape
+
+    
   end
 
 

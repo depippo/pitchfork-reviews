@@ -22,6 +22,13 @@ class PitchforkReviews::CLI
       if input.to_i > 0
         the_album = @albums[input.to_i-1]
         puts "#{the_album.name}"
+        puts "by"
+        puts "#{the_album.artist}"
+        puts "#{the_album.genre}"
+        puts "Score: #{the_album.score}"
+        puts "#{the_album.best_new_album}"
+        puts "#{the_album.summary}"
+        puts "Read the full review at http://pitchfork.com#{the_album.url}"
       elsif input == "list"
         list_reviews
       else
@@ -33,6 +40,5 @@ class PitchforkReviews::CLI
   def goodbye
     puts "Goodbye! Check back again soon for more new albums."
   end
-
 
 end
