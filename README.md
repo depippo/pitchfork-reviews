@@ -1,28 +1,12 @@
 # PitchforkReviews
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pitchfork_reviews`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'pitchfork_reviews'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install pitchfork_reviews
+To install this gem, go to your terminal and enter `gem install pitchfork_reviews`.
 
 ## Usage
 
-TODO: Write usage instructions here
+Once the gem has been installed, you can access it by entering `pitchfork_reviews` in your terminal. This will load a list of the most recent album reviews from Pitchfork.com, updated in real time. You can check which albums are the highest scoring, read album summaries, and find links to full reviews for albums you're interested in.
 
 ## Development
 
@@ -32,10 +16,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pitchfork_reviews.
+Bug reports and pull requests are welcome on GitHub at https://github.com/depippo/pitchfork_reviews.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
