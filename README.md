@@ -6,7 +6,7 @@ To install this gem, go to your terminal and enter `gem install pitchfork_review
 
 ## Usage
 
-Once the gem has been installed, you can access it by entering `pitchfork_reviews` in your terminal. This will load a list of the most recent album reviews from Pitchfork.com, updated in real time. You can check which albums are the highest scoring, read album summaries, and find links to full reviews for albums you're interested in.
+Once the gem has been installed, you can access it by entering `pitchfork-reviews` in your terminal. This will load a list of the most recent album reviews from Pitchfork.com, updated in real time. You can check which albums are the highest scoring, read album summaries, and find links to full reviews for albums you're interested in.
 
 ## Development
 
