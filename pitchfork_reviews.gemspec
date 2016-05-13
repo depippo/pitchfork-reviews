@@ -15,9 +15,8 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
 
-  spec.files         = ["./lib/pitchfork_reviews.rb", "./lib/pitchfork_reviews/album.rb", "./lib/pitchfork_reviews/cli.rb", "./lib/pitchfork_reviews/version.rb"]
-  spec.bindir        = "bin"
-  spec.executables   << 'pitchfork-reviews'
+  spec.files         = `git ls-files`.split("\n")
+  spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   spec.require_paths = ["lib", "lib/pitchfork_reviews"]
 
   spec.add_development_dependency "bundler", "~> 1.12"
