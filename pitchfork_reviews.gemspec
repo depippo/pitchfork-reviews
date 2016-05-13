@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.files         = ["lib/pitchfork_reviews.rb", "lib/pitchfork_reviews/album.rb", "lib/pitchfork_reviews/cli.rb", "lib/pitchfork_reviews/version.rb"]
   spec.bindir        = "bin"
   spec.executables   << 'pitchfork-reviews'
-  spec.require_paths = ["lib"]
+  spec.require_paths = ["lib", "lib/pitchfork_reviews"]
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
