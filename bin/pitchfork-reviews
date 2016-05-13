@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require './lib/pitchfork_reviews'
+require './lib/pitchfork_reviews/album.rb'
+require './lib/pitchfork_reviews/cli.rb'
+require './lib/pitchfork_reviews/version.rb'
+require './lib/pitchfork_reviews.rb'
 
 PitchforkReviews::CLI.new.call
