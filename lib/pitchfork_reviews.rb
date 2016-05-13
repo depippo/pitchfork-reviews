@@ -2,6 +2,9 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
-require_relative './pitchfork_reviews/version'
-require_relative './pitchfork_reviews/cli'
-require_relative './pitchfork_reviews/album'
+require "pitchfork_reviews/version"
+require "pitchfork_reviews/cli"
+require "pitchfork_reviews/album"
+
+module PitchforkReviews
+end
